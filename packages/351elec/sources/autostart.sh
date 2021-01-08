@@ -7,7 +7,7 @@
 . /etc/profile
 
 # Add support for custom hook scripts just before the system start
-if [ ! -e "/flash/hook.sh"]; then
+if [ -e "/flash/hook.sh" ]; then
     /flash/hook.sh before_start
 fi
 
