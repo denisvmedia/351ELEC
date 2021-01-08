@@ -6,6 +6,11 @@
 # Source predefined functions and variables
 . /etc/profile
 
+# Add support for custom hook scripts just before the system start
+if [ -e "/flash/hook.sh" ]; then
+    /flash/hook.sh before_start
+fi
+
 if [ ! -d "/storage/roms" ]
 then
   mkdir /storage/roms
@@ -80,7 +85,7 @@ for dir in 3do BGM amiga amstradcpc arcade atari2600 atari5200 atari7800        
 	   dreamcast eduke famicom fbneo fds gameandwatch gamegear gb gba gbc     \
 	   genesis gw intellivision mame mastersystem megadrive megadrive-japan   \
 	   mplayer msx msx2 n64 naomi nds neocd neogeo nes ngp ngpc odyssey       \
-           openbor pcengine pc pcenginecd pcfx pico-8 psp psx saturn sc-3000      \
+	   openbor pcengine pc pcenginecd pcfx pico-8 psp psx saturn sc-3000      \
 	   scummvm sega32x segacd sfc sg-1000 sgfx snes tg16 tg16cd tic-80 uzebox \
 	   vectrex vic20 videopac virtualboy wonderswan wonderswancolor x68000    \
 	   zx81 zxspectrum ports ports/VVVVVV ports/quake ports/diablo ports/doom \
