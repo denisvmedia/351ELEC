@@ -160,7 +160,7 @@
   NTFS3G="yes"
 
   # build and install hfs filesystem utilities (yes / no)
-  HFSTOOLS="no"
+  HFSTOOLS="yes"
 
   # build and install remote support (yes / no)
   REMOTE_SUPPORT="no"

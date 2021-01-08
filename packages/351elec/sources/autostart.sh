@@ -11,10 +11,25 @@ then
   mkdir /storage/roms
 fi
 
+# vfat (FAT32)
 if [ ! "$(mount 2>/dev/null| grep [r]oms)" ]
 then
   rm -rf /storage/roms/*
   mount -o umask=000 -t vfat /dev/mmcblk0p3 /storage/roms
+fi
+
+# ext4
+if [ ! "$(mount 2>/dev/null| grep [r]oms)" ]
+then
+  rm -rf /storage/roms/*
+  mount -o umask=000 -t ext4 /dev/mmcblk0p3 /storage/roms
+fi
+
+# ntfs
+if [ ! "$(mount 2>/dev/null| grep [r]oms)" ]
+then
+  rm -rf /storage/roms/*
+  mount -o umask=000 -t ntfs /dev/mmcblk0p3 /storage/roms
 fi
 
 # It seems some slow SDcards have a problem creating the symlink on time :/
