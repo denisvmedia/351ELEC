@@ -687,7 +687,8 @@ mount_games() {
     then
       /usr/bin/busybox mkdir -p /storage/roms &>/dev/null
     fi
-    mount -t vfat /dev/mmcblk0p3 /storage/roms &>/dev/null
+
+    mount /dev/mmcblk0p3 /storage/roms &>/dev/console
 
     if [ -d "/storage/.update" ]
     then
@@ -764,14 +765,22 @@ check_out_of_space() {
 do_cleanup() {
   StartProgress spinner "Cleaning up... "
 
+  if mountpoint -q /storage/roms; then
+    umount /storage/roms &>/dev/null
+  fi
+
+  if mountpoint -q /storage; then
+    umount /storage &>/dev/null
+  fi
+
   if mountpoint -q /update; then
-    umount /update
+    umount /update &>/dev/null
   fi
 
   if [ -d $UPDATE_ROOT/.tmp/mnt ]; then
     if mountpoint -q $UPDATE_ROOT/.tmp/mnt ; then
       # busybox umount deletes loop device automatically
-      umount $UPDATE_ROOT/.tmp/mnt
+      umount $UPDATE_ROOT/.tmp/mnt &>/dev/null
     fi
 
     [ -n $LOOP ] && losetup -d $LOOP &>/dev/null
