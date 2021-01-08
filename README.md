@@ -2,6 +2,8 @@
 
 An open source firmware for the Anbernic RG351P.
 
+This is a fork of 351ELEC that includes features and changes that are not accepted by author of the main repository.
+
 ## Features
 
 * A 64bit Firmware optimized for the RK3326 CPU and 320x480 display found in the RG351P.
@@ -11,6 +13,11 @@ An open source firmware for the Anbernic RG351P.
 * A FAT32 games partition easilly accessible from Linux, Windows and MacOS.
 
 351ELEC is a fork of [EmuELEC](https://github.com/EmuELEC/EmuELEC) which is based on [CoreELEC](https://github.com/CoreELEC/CoreELEC), [Lakka](https://github.com/libretro/Lakka-LibreELEC), and [Batocera](https://github.com/batocera-linux/batocera.linux).  It is intended for use only on the RG351P and is not compatible with other devices.
+
+## Features that are not included in the main repository
+
+* Hook to run before the system starts (can be used for custom mount scripts). Just create `hook.sh` with your commands in the root of the first flash partition.
+* Original hotkeys in Retroarch that were on the stock firmware (the ones introduced in the original repo are not usable, e.g. select-up/down is a no-go hotkey).
 
 ## Installation
 
