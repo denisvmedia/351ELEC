@@ -12,6 +12,16 @@ An open source firmware for the Anbernic RG351P.
 
 351ELEC is a fork of [EmuELEC](https://github.com/EmuELEC/EmuELEC) which is based on [CoreELEC](https://github.com/CoreELEC/CoreELEC), [Lakka](https://github.com/libretro/Lakka-LibreELEC), and [Batocera](https://github.com/batocera-linux/batocera.linux).  It is intended for use only on the RG351P and is not compatible with other devices.
 
+## Differences from github.com/fewtarius/351ELEC
+
+This fork fixes some weak sides of the upstream version:
+
+- Reverts RetroArch hotkeys that were used in before 351ELEC 1.0.7.
+- Upgrades some libraries to their fresher versions.
+- Adds a `hook.sh` script support (read more [here](https://github.com/denisvmedia/351ELEC/releases/tag/1.0.7-fixed)).
+- Removes debugging libraries that are not needed by most users.
+- Is open to changes that are not accepted in the upstream.
+
 ## Installation
 
 351ELEC minimally requires an 8GB MicroSD, however the experience will be limited.  For an optimal configuration 32GB or more is recommended.
